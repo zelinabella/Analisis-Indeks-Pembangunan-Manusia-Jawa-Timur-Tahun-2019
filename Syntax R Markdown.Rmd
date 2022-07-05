@@ -1,0 +1,367 @@
+---
+title: "Analisis Pengaruh Persentase Penduduk Miskin, Angka Harapan Hidup, dan Pengeluaran Per Kapita Riil terhadap Indeks Pembangunan Manusia di Provinsi Jawa Timur Tahun 2019"
+author: "Zelina Bellavira Aldawiyah"
+date: "22 MEI 2022"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    highlight: github
+    toc: true
+    number_sections: true
+---
+
+```{r include=FALSE}
+library(knitr)
+opts_chunk$set(message = FALSE)
+opts_chunk$set(warning = FALSE)
+opts_chunk$set(comment = "")
+opts_chunk$set(collapse = TRUE)
+opts_chunk$set(error = TRUE)
+opts_chunk$set(prompt = TRUE)
+opts_chunk$set(fig.align = 'center')
+```
+
+# PENDAHULUAN
+
+## Latar Belakang
+
+Pembangunan manusia merupakan salah satu tolak ukur dari kemajuan suatu negara. Apakah suatu negara maju, berkembang atau terbelakang. Indeks Pembangunan Manusia (IPM) adalah ukuran perbandingan harapan hidup, pendidikan, dan standar hidup untuk semua setiap negara di dunia dalam meningkatkan pembangunan negara. "Salah satu faktor yang menyebabkan ketertinggalan dan penghambat dalam pembangunan suatu negara adalah tingginya angka kemiskinan" (Kuncoro, 2005). Keberadaan penduduk miskin dalam suatu wilayah tidak akan membawa kemakmuran bagi wilayah tersebut serta dapat berdampak pula pada negara.
+
+Negara-negara yang memiliki kualitas kesehatan yang bagus, tiap-tiap individunya mendapat harapan rata-rata hidup yang lebih panjang. Oleh sebab itu, dalam segi ekonomis dapat mencapai pendapatan yang lebih tinggi. Kualitas kesehatan baik dapat menumbuhkan kemakmuran penduduknya, menyebabkan tingkat kemiskinan berkurang (Faturrohim, 2011). Menurut Badan Pusat Statistik (BPS) indikator penghitung dimensi kesehatan pada Indeks Pembangunan Manusia adalah Angka Harapan Hidup saat lahir (AHH).
+
+Tak hanya itu, pada masa otonomi daerah, masing-masing wilayah diharapkan dapat memahami indikator penghitung Indeks Pembangunan Manusia (IPM) demi kebutuhan perencanaan manusia pada daerahnya. Bertujuan untuk mengetahui perkembangan yang telah tercapai dalam pembangunan manusia. Masyakat yang ideal harus memiliki peluang kerja dan bekerja untuk menghasilkan sejumlah pendapatan diperuntukkan dalam jual beli. Memaksimalkan kebutuhan tersebut dapat dikalkulasikan dengan pengeluaran per kapita yang disesuaikan menurut Badan Pusat Statistik (BPS).
+
+# Tinjauan Pustaka
+
+## Statistika Deskriptif
+
+Analisis statistik deskriptif bertujuan untuk mendeskripsikan data dari masing-masing variabel dalam penelitian (Ghozali, 2016)
+
+## Analisis Regresi Berganda
+
+Regresi linier berganda adalah metode yang digunakan untuk mengetahui pola hubungan antara dua atau lebih variabel sekaligus memperoleh model untuk menaksir dan membuat perkiraan nilai variabel tertentu. Persama regresi linier berganda dirumuskan sebagai berikut : $$
+Y= \beta_{0}+ \beta_{1}X_{1} +  \beta_{2}X_{2} + ... + \beta_{k}X_{k} + \varepsilon
+$$
+
+## Uji Asumsi Klasik
+
+Menurut Priyatno (2014;89), uji asumsi klasik berfungsi untuk melihat apakah terdapat atau tidaknya normalitas residual, multikolinearitas, autokorelasi dan heteroskedastis dalam pemodelan regresi. Diharuskan terpenuhinya asumsi klasik agar akhirnya didapat model regresi dengan sifat tidak bias serta pengujian bisa dipercayai. Adapun tahapan pengujian asumsi klasik sebagai berikut :
+
+### Uji Normalitas
+
+Uji normalitas memiliki tujuan untuk mengetahui apakah variabel pengganggu atau residual memiliki distribusi normal dalam model regresi. Apabila distribusi data normal atau mendekati normal, maka bisa disebutkan bahwa model regresi telah baik.
+
+### Uji Heteroskedastisitas
+
+Uji Heterokedastisitas dipergunakan untuk menguji apakah terdapat ragam dari residual yang berbeda yang dapat membiaskan hasil yang telah dihitung (Lestari & Setyawan, 2017).
+
+### Uji Multikolinearitas
+
+Uji multikolinearitas bertujuan untuk menguji apakah model regresi ditemukan adanya korelasi antar variabel bebas (independen). Pengujian multikolinearitas adalah pengujian yang mempunyai tujuan untuk menguji apakah dalam model regresi ditemukan adanya korelasi antara variabel independen (Ghozali, 2016).
+
+### Uji Autokorelasi
+
+Uji Autokorelasi digunakan untuk melihat apakah dalam model regresi terdapat korelasi antar variabelnya dengan adanya perubahan waktu atau tidak. Model regresi yang baik adalah regresi yang bebas dari autokorelasi. Untuk uji autokorelasi ini terdapat beberapa cara yang biasanya digunakan contohnya dengan menggunakan Uji Durbin Watson (Ghozali, 2016).
+
+## Pengujian Hipotesis
+
+### Uji Simultan (Uji F)
+
+Pengujian ini dilakukan untuk mengetahui apakah semua variabel independen secara simultan memiliki pengaruh yang signifikan terhadap variabel dependen. Hipotesis penelitian yang digunakan sebagai berikut : $$
+H_{0} : \beta_{0}=\beta_{1}=\beta_{2}=...=\beta_{i}=0
+$$ $$
+H_{1} : \beta_{i} ≠ 0
+$$
+
+### Uji Parsial (Uji t)
+
+Uji t atau dapat disebut juga sebagai uji signifikansi secara parsial, yang dilakukan untuk menunjukkan seberapa jauh masing masing variabel independent/ penjelas secara individual dalam menerangkan variasi dari variabel dependen atau variabel respon (Gujarati, 2003). Hipotesis penelitian yang digunakan sebagai berikut : $$
+ H_{0} : \beta_{i} ≠ 0
+$$ $$
+H_{1} : \beta_{i} ≠ 0
+$$
+
+# SOURCE CODE
+
+## Data
+
+Data yang digunakan pada penelitian ini adalah data sekunder. Data sekunder yang digunakan bersumber dari BPS Provinsi Jawa Timur pada tahun 2019. Ada 4 variabel yang digunakan yaitu :
+
+-   Variabel dependen : Indeks Pembangunan Manusia (Y)
+
+-   Variabel Independen :
+
+    1.  Persentase Penduduk Miskin Menurut Kabupaten/Kota di Jawa Timur (Persen) (X1)
+    2.  Angka Harapan Hidup (Tahun) (X2)
+    3.  Pengeluaran Per Kapita Riil Disesuaikan (Ribu Rupiah) (X3)
+
+## Library yang Dibutuhkan
+
+```{r}
+# Library
+library(readxl)
+library(knitr)
+library(tseries)
+library(lmtest)
+library(olsrr)
+
+```
+
+## Membangkitkan Data
+
+```{r}
+data_praktikum <- read_excel("E:/SEMESTER 6/KOMPUTASI STATISTIKA/Data Praktikum BPS Jawa Timur.xlsx")
+knitr :: kable(data_praktikum,caption="Data BPS Jawa Timur tahun 2019")
+```
+
+Membangkitkan data dengan cara mengimpor data excel menggunakan *library* `readxl` dengan *function* `read_excel`. Kemudian menyajikan menggunakan *library* `knitr` dengan *function* `kable`
+
+## Satistik Deskriptif
+
+```{r}
+summary(data_praktikum)
+```
+
+Menggunakan *function* `summary()`untuk melihat hasil statistik deskriptif "data_praktikum"
+
+## Analisis Regresi Berganda
+
+```{r}
+regresi<-lm(Y~X1+X2+X3,data=data_praktikum)
+summary(regresi)
+```
+
+Melakukan analisis regresi  yang sudah built in dengan fungsi `lm()` dimana didefinisikan sebagai objek regresi. Syntax Y\~X1+X2+X3 adalah formula untuk melakukan analisis regresi dimana Y sebagai variabel respons dan X1,X2,X3 sebagai variabel prediktor. data=data_praktikum data yang akan digunakan.
+
+Kemudian *function* `summary(regresi)`untuk menampilkan hasil analisis regresi yang sudah didefinisikan sebelumnya secara lengkap.
+
+## Uji Asumsi Klasik
+
+### Uji Normalitas
+
+```{r}
+sisa<-residuals(regresi)
+plot(regresi,2)
+jarque.bera.test(sisa)
+shapiro.test(sisa)
+```
+
+Pertama, Membuat vektor bernama sisa yang berisi residuals objek "regresi". Melihat visualisasi Normal Q-Q plot menggunakan *function* `plot()`. Untuk melakukan pengujian normalitas digunakan uji Jarque Berra dengan menggunakan library `tseries` *function* `jarque.bera.test`dan dan uji Shapiro Wilk dengan *function* `shapiro.test`. Argumen yang digunakan adalah objek "sisa"
+
+### Uji Heteroskedastisitas
+
+```{r message=FALSE, warning=FALSE}
+lmtest::bptest(regresi)
+```
+
+Pengujian heteroskedastisitas atau homokedastisitas menggunakan library `lmtest`dengan *function* `bptest`, argumen yang akan dihitung adalah objek "regresi"
+
+### Uji Multikolinieritas
+
+```{r}
+olsrr :: ols_vif_tol(regresi)
+```
+
+Pengujian multikolinearitas menggunakan library `olsrr` dengan *function* `ols_vif_tol`, argumen yang akan dihitung adalah objek "regresi"
+
+### Uji Autokorelasi
+
+```{r}
+lmtest::dwtest(regresi)
+```
+
+Pengujian autokorelasimenggunakan library `lmtest`dengan *function* `dwtest`, argumen yang akan dihitung adalah objek "regresi"
+
+# HASIL DAN PEMBAHASAN
+
+## Statistika Deskriptif
+
+Berdasarkan data yang digunakan, didapatkan statistik deskriptif variabel sebagai berikut :
+
+1.  Indeks Pembangunan Manusia (Y)
+
+    Indeks Pembangunan Manusia di Provinsi Jawa Timur pada tahun 2019 memiliki nilai rata-rata sebesar 71.69, ada 50% IPM yang memiliki nilai kurang dari 71.14 dan ada 50% IPM yang memiliki nilai lebih dari 71.14, dengan nilai minimum sebesar 61.94, dan maksimum sebesar 82.22
+
+2.  Persentase Penduduk Miskin (Y)
+
+    Persentase Penduduk Miskin di Provinsi Jawa Timur pada tahun 2019 memiliki nilai rata-rata sebesar 10.297, ada 50% Persentase Penduduk Miskin yang memiliki nilai kurang dari 9.625 dan ada 50% Persentase Penduduk Miskin yang memiliki nilai lebih dari 9.625, dengan nilai minimum sebesar 3.810 dan maksimum sebesar 20.710
+
+3.  Angka Harapan Hidup (Y)
+
+    Angka Harapan Hidup di Provinsi Jawa Timur pada tahun 2019 memiliki nilai rata-rata sebesar 71.52, ada 50% Angka Harapan Hidup yang memiliki nilai kurang dari 72.22 dan ada 50% Angka Harapan Hidup yang memiliki nilai lebih dari 72.22, dengan nilai minimum sebesar 66.55, dan maksimum sebesar 74.13
+
+4.  Pengeluaran Per Kapita Riil (Y)
+
+    Pengeluaran Per Kapita Riil di Provinsi Jawa Timur pada tahun 2019 memiliki nilai rata-rata sebesar 11,615, ada 50% Pengeluaran Per Kapita Riil yang memiliki nilai kurang dari 11,307 dan ada 50% Pengeluaran Per Kapita Riilyang memiliki nilai lebih dari 11,307, dengan nilai minimum sebesar 8,718, dan maksimum sebesar 17,854
+
+## Model Persamaan Regresi Berganda
+
+$$
+Y = 0.7544 - 0.2065X1 + 0.7783X2 + 0.0015X3
+$$
+
+Keterangan :
+
+Y = Indeks Pembangunan Manusia
+
+X1 = Persentase Penduduk Miskin (Persen)
+
+X2 = Angka Harapan Hidup (Tahun)
+
+X3 = Pengeluaran Per Kapita Riil Disesuaikan (Ribu Rupiah)
+
+Interpretasi Model :
+
+-   Setiap kenaikan Persentase Penduduk Miskin sebesar satu persen, maka Indeks Pembangunan Manusia akan menurun sebesar 0.2065 satuan dengan asumsi variabel lain konstan. 
+
+-   Setiap kenaikan Angka Harapan Hidup sebesar satu tahun, maka Indeks Pembangunan Manusia akan meningkat sebesar 0.7783 satuan dengan asumsi variabel lain konstan. 
+
+-   Setiap kenaikan Pengeluaran Per Kapita Riil Disesuaikan sebesar satu (Ribu Rupiah), maka Indeks Pembangunan Manusia akan meningkat sebesar 0.0015 satuan dengan asumsi variabel lain konstan. 
+
+-   Ketika semua variabel nilainya 0 , maka Indeks Pembangunan Manusia adalah konstan sebesar 0.7544
+
+## Uji Asumsi Klasik
+
+### Uji Normalitas
+
+**Plot**
+
+Q-Q Plot untuk pemeriksaan normalitas. Didapatkan hasil bahwa pada plot, Titik-titik berada pada sekitar garis dan tidak menjauhi. Jadi, dapat disimpulkan secara grafis tidak ada indikasi pelanggaran normalitas
+
+-   **Hipotesis**
+
+    H~0~: Sisaan berdistribusi normal
+
+    H~1~: Sisaan tidak berdistribusi normal
+
+**Uji Normalitas Galat menggunakan uji Jarque Berra**
+
+Berdasarkan output R, didapatkan P-value sebesar 0.8266 Dimana P-value (0.8266)\> α (0.05), maka H~0~ diterima. Jadi dengan taraf nyata 5%, dapat disimpulkan bahwa sisaan menyebar normal atau asumsi normalitas terpenuhi.
+
+**Uji Normalitas Galat menggunakan uji Shapiro Wilk**
+
+Berdasarkan output R, didapatkan P-value sebesar 0.5101 Dimana P-value (0.5101)\> α (0.05), maka H~0~ diterima. Jadi dengan taraf nyata 5%, dapat disimpulkan bahwa sisaan menyebar normal atau asumsi normalitas terpenuhi.
+
+### Uji Heteroskedastisitas
+
+-   **Hipotesis**
+
+    H~0~: Tidak terjadi gejala heteroskedastisitas
+
+    H~1~: Terjadi gejala heteroskedastisitas
+
+Berdasarkan output R menggunakan ***stundentized Breusch-Panan***, didapatkan P-value sebesar 0.7865. Dimana P-value (0.7865)\> α (0.05), maka H~0~ diterima. Jadi dengan taraf nyata 5%, dapat disimpulkan bahwa tidak terjadi gejala heteroskedastisitas.
+
+### Uji Multikolinieritas
+
+-   **Hipotesis**
+
+    H~0~: Tidak terjadi gejala multikolinearitas
+
+    H~1~: Terjadi gejala multikolinearitas
+
+Berdasarkan output R, diketahui nilai tolerance semua variabel independen \> α 0.1 sementara nilai VIF semua variabel independen \< 10 maka mengacu pada dasar pengambilan keputusan dalam uji multikolinearitas dapat disimpulkan bahwa tidak terjadi gejala multikolinearitas dalam.
+
+### Uji Autokorelasi
+
+-   **Hipotesis**
+
+    H~0~: Tidak terdapat autokorelasi
+
+    H~1~: Terdapat autokorelasi
+
+Berdasarkan output R menggunakan ***Durbin-Watson***, didapatkan P-value sebesar 0.2461 Dimana P-value (0.2461)\> α (0.05), maka H~0~ diterima. Jadi dengan taraf nyata 5%, dapat disimpulkan bahwa tidak terdapat autokorelasi.
+
+## Uji Signifikansi
+
+### Uji Simultan (Uji F)
+
+-   **Hipotesis**
+
+    H~0~ : Variabel independen secara bersama-sama tidak berpengaruh signifikan terhadap variabel IPM(Y)
+
+    H~1~ : Variabel independen secara bersama-sama berpengaruh signifikan terhadap variabel IPM(Y)
+
+Berdasarkan Output R, didapatkan nilai nilai P-value uji F sebesar 2.2 x 10^-1^ . Dimana P-value (2.2 x 10^-16^) \< α (0.05), maka H0 ditolak. Jadi dengan taraf signifikansi 5%, dapat disimpulkan bahwa variabel independen Persentase Penduduk Miskin (X1), Angka Harapan Hidup (X2), dan Pengeluaran Per Kapita Riil (X3) secara bersama-sama berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia (Y).
+
+### Uji Parsial (Uji t)
+
+**Variabel Persentase Penduduk Miskin (X1)**
+
+-   **Hipotesis**
+
+    H~0~ : β~1~= 0 (Variabel Persentase Penduduk Miskin tidak berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia)
+
+    H~1~ : β~1~≠ 0 (Variabel Persentase Penduduk Miskin berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia)
+
+Berdasarkan output R, didapatkan nilai P-value untuk variabel Persentase Penduduk Miskin (X1) sebesar 0.00245. Dimana P-value (0.00245) \< α (0.05), maka H0 ditolak. Jadi dengan taraf signifikansi 5%, dapat disimpulkan bahwa Variabel Persentase Penduduk Miskin berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia
+
+**Variabel Angka Harapan Hidup (X2)**
+
+-   **Hipotesis**
+
+    H~0~ : β~2~= 0 (Variabel Angka Harapan Hidup tidak berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia)
+
+    H~1~ : β~2~≠ 0 (Variabel Angka Harapan Hidup berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia)
+
+Berdasarkan output R, didapatkan nilai P-value untuk variabel Angka Harapan Hidup (X2) sebesar 0.00245. Dimana P-value (5.09 x 10^-08^) \< α (0.05), maka H0 ditolak. Jadi dengan taraf signifikansi 5%, dapat disimpulkan bahwa Variabel Angka Harapan Hidup berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia
+
+**Variabel Pengeluaran Per Kapita Riil (X3)**
+
+-   **Hipotesis**
+
+    H~0~ : β~3~= 0 (Variabel Pengeluaran Per Kapita Riil tidak berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia)
+
+    H~1~ : β~3~≠ 0 (Variabel Pengeluaran Per Kapita Riil berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia)
+
+Berdasarkan output R, didapatkan nilai P-value untuk variabel Pengeluaran Per Kapita Riil (X3) sebesar 0.00245. Dimana P-value (2.54 x 10^-14^) \< α (0.05), maka H0 ditolak. Jadi dengan taraf signifikansi 5%, dapat disimpulkan bahwa Variabel Pengeluaran Per Kapita Riil berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia
+
+### Koefisien Determinasi
+
+Didapatkan R square atau koefisien determinasi sederhana sebesar 0.9555 menunjukkan bahwa 95.91% variabel dependen Indeks Pembangunan Manusia (Y) dapat dijelaskan oleh variabel independen Persentase Penduduk Miskin (X1), Angka Harapan Hidup (X2), dan Pengeluaran Per Kapita Riil (X3), sedangkan sisanya 4.09% dijelaskan oleh variabel lain diluar pemodelan regresi.
+
+# Kesimpulan dan saran
+
+## Kesimpulan
+
+Berdasarkan analisis yang telah dilakukan, didapatkan kesimpulanm sebagai berikut :
+
+1.  Pengujian secara simultan mendapatkan hasil bahwa Persentase Penduduk Miskin (X1), Angka Harapan Hidup (X2), dan Pengeluaran Per Kapita Riil (X3) secara bersama-sama berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia (Y) Provinsi Jawa Timur Tahun 2019
+
+2.  Pengujian secara parsial mendapatkan hasil bahwa ketiga variabel Persentase Penduduk Miskin (X1), Angka Harapan Hidup (X2), dan Pengeluaran Per Kapita Riil (X3) berpengaruh signifikan terhadap variabel Indeks Pembangunan Manusia (Y) Provinsi Jawa Timur Tahun 2019
+
+3.  Diperoleh model persamaan regresi linier bergandaa sebagai berikut:
+
+    $$
+    Y = 0.7544 - 0.2065X1 + 0.7783X2 + 0.0015X3
+    $$
+
+    Y = Indeks Pembangunan Manusia
+
+    X1 = Persentase Penduduk Miskin (Persen)
+
+    X2 = Angka Harapan Hidup (Tahun)
+
+    X3 = Pengeluaran Per Kapita Riil Disesuaikan (Ribu Rupiah)
+
+4.  Besar pengaruh variabel independen dalam model sebesar 95.91%. Artinya 95.91% variasi variabel dependen Indeks Pembangunan Manusia di Provinsi Jawa Timur dapat dijelaskan oleh variabel independen ersentase Penduduk Miskin, Angka Harapan Hidup, dan Pengeluaran Per Kapita Riil.
+
+## Saran
+
+Saran untuk peneliti selanjutnya, untuk melakukan pengujian dengan variabel lain untuk mengetahui lebih banyak faktor yang berpengaruh terhadap Indeks Pembangunan Manusia.
+
+# DAFTAR PUSTAKA
+
+Ghozali, I. (2016). *Aplikasi Analisis Multivariate dengan Program SPSS* (Vol. 8). Semarang: Badan Penerbit Universitas Diponegoro.
+
+Gujarati, D. N. (2003). Basic Econometrics (Fourth edi). McGraw-HiII/lrwin.
+
+Lestari, A., & Setyawan, Y. (2017). *Analisis regresi data panel untuk mengetahui faktor yang mempengaruhi belanja daerah di provinsi jawa tengah.* 2(1), 1--11.
+
+Meriyanti, N. K., Haris, I. A., & Made Artana, M. P. (2015). Pengaruh program indeks pembangunan manusia (ipm) terhadap pengentasan kemiskinan di kecamatan buleleng tahun 2011-2014. *Jurnal Pendidikan Ekonomi Undiksha*, *5*(1).
+
+Priyatno, D. (2014). *Analisa Statistik Data dengan SPSS*, Edisi Pertama. Yogyakarta: CVAndiOffse
+
+RUMIATI, S. (2017). *PENGARUH PROFITABILITAS, UKURAN PERUSAHAAN, UMUR PERUSAHAAN, DIVIDEND PAYOUT RATIO, DAN LEVERAGE TERHADAP TINDAKAN PERATAAN LABA (Studi Empiris Pada Perusahaan Manufaktur Yang Go Publik di BEI Tahun 2013-2015)* (Doctoral dissertation, Universitas Muhammadiyah Gresik).
+
+Siti, Amanah (2021) *PENGARUH ANGKA HARAPAN HIDUP, HARAPAN LAMA SEKOLAH, RATA-RATA LAMA SEKOLAH DAN PENGELUARAN PER KAPITA TERHADAP INDEKS PEMBANGUNAN MANUSIA DI PROVINSI SUMATERA BARAT.* Diploma thesis, Universitas Andalas.
